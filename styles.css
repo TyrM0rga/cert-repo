@@ -1,0 +1,377 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+:root {
+  --primary-color: #4a6cff;
+  --primary-hover: #3a5bee;
+  --text-color: #333333;
+  --secondary-text: #6b7280;
+  --border-color: #e2e8f0;
+  --background-color: #f8fafc;
+  --card-background: #ffffff;
+  --success-color: #10b981;
+  --shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
+}
+
+#page {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 2rem;
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+#banner_area {
+  background-color: #f8fafc;
+  width: 100%;
+  padding: 1.5rem 0;
+  border-top: 4px solid var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
+#banner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  color: var(--text-color);
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+#banner::first-letter {
+  color: var(--primary-color);
+  font-size: 2.25rem;
+}
+
+h2 {
+  color: var(--text-color);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+.btn-container {
+  margin: 20px 0;
+  text-align: right;
+}
+
+.filter-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.filter-btn:hover {
+  background-color: #2980b9;
+}
+
+.btn-container button {
+  background-color: var(--primary-color);
+  color: ghostwhite;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  font-family: Arial, sans-serif;
+}
+
+.btn-container button:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+.btn-container button:active {
+  background-color: #2e4c85;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
+}
+
+.btn-container button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(68, 114, 196, 0.3);
+}
+
+.sort {
+  cursor: pointer;
+}
+
+#cert_list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#cert_list thead {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+#cert_list th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 0.25rem solid #ddd;
+}
+
+#cert_list tbody tr {
+  border-bottom: 1px solid #dddddd;
+  transition: background-color 0.3s;
+}
+
+#cert_list tbody tr:nth-of-type(even) {
+  background-color: lightgray;
+}
+
+#cert_list tbody tr:hover {
+  background-color: #e0ecf7;
+}
+
+.row_pointer {
+  cursor: pointer;
+}
+
+#cert_list td {
+  padding: 0.75rem 1rem;
+  vertical-align: middle;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: var(--transition);
+  appearance: none;
+  background-color: #fff;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(74, 108, 255, 0.15);
+}
+
+.form-control-file {
+  padding: 0.5rem 0;
+}
+
+/* Custom file upload styling */
+.file-upload {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+.file-upload-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6;
+  color: var(--text-color);
+  padding: 1rem;
+  border: 2px dashed var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 0.5rem;
+}
+
+.file-upload-label:hover {
+  background-color: #e5e7eb;
+}
+
+.file-upload-icon {
+  margin-right: 0.5rem;
+}
+
+.file-upload input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* EM Personnel list loading spinner */
+.loading-spinner {
+  display: none;
+  margin-top: 0.5rem;
+}
+
+#sel_spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(74, 108, 255, 0.2);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 8px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+button:disabled {
+  background-color: #cccccc !important;
+  border-color: #999999 !important;
+  color: #666666 !important;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(74, 108, 255, 0.25);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.form-text {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--secondary-text);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    margin: 20px;
+    padding: 1.5rem;
+  }
+}
+
+/* Success message styling */
+.success-message {
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid var(--success-color);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  color: var(--success-color);
+}
+
+.success-icon {
+  margin-right: 0.5rem;
+}
+
+/* Custom styling for the file input */
+.file-drop-area {
+  display: block;
+  width: 100%;
+}
+
+.upload-area {
+  border: 2px dashed var(--border-color);
+  border-radius: 8px;
+  padding: 2rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  background-color: #f9fafb;
+}
+
+.upload-area:hover {
+  border-color: var(--primary-color);
+  background-color: rgba(74, 108, 255, 0.05);
+}
+
+.upload-icon {
+  /* font-size: 2rem; */
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Upload progress bar */
+.progress {
+  height: 8px;
+  background-color: #e2e8f0;
+  border-radius: 4px;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.ui-dialog-titlebar-close {
+  display: none;
+}
