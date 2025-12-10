@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Vanilla JavaScript App</title>
+</head>
+
+<body>
+            <div id="dialog-message" title="Under Construction!" style="display: none; color: black;">
+                <p>
+                    <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 50px 0"></span>
+                    <span id="alert-msg" style="text-align: left;"></span>
+                </p>
+            </div>
+            <div id="dialog-feedback" title="Under Construction!" style="display: none; z-index: 1000">
+                <div>Provide disapproval feedback.</div>
+                <textarea id="feedback" style="width: 100%" rows="5"></textarea>
+            </div>
+            <div id="error-message" title="Error Message!" style="display: none">
+                <p>
+                    <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 5px 0"></span>
+                    <span>An error occurred. Please try your request again. If this error
+                        persists, notify the EM Dashboard Administration Team.</span>
+                </p>
+                <p id="error_page"></p>
+                <p id="error_function"></p>
+                <p id="error_msg"></p>
+            </div>
+
+            <div id="blanket" style="
+                background-color: #002df5;
+                background: radial-gradient(circle,rgba(0, 45, 245, 1) 64%, rgba(8, 22, 71, 1) 100%);
+                color: ghostwhite;
+                display: flex;
+                justify-content: center;
+                align-items: center;                
+                cursor: wait;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-family: 'Lato';
+                font-size: 1.75rem;
+                font-weight: 700;
+                z-index: 10;
+            ">
+                <div id="loader">
+                    <h1>Retrieving Certifications...</h1>
+                    <div class="spinner"></div>
+                </div>
+
+            </div>
+
+            <div id="page" style="display: none;">
+                <div id="banner_area">
+                    <div id="banner">AFCEM Certificate Repository</div>
+                </div>
+
+                <div id="controls" class="control-panel">
+                    <div id="filter-container">
+                        <input type="text" id="searchInput" placeholder="Search Recipients..."
+                            style="padding: 8px 12px; border: 1px solid #ddd; width: 250px; border-radius: 4px;">
+                        <button id="searchButton" class="filter-btn" onclick="applyFilter()">Search</button>
+                        <button id="clearButton" class="filter-btn" onclick="clearSearchFilter()">Clear</button>
+                    </div>
+                </div>
+
+                <div id="cert_list" class="container">
+                    <div class="btn-container">
+                        <button id="admin-btn" onclick="showAddCertDiv()">Award Certification</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th id="member" class="sort" onclick="sortRecipients()">Recipient</th>
+                                <th id="award" class="sort" onclick="sortCertification()">Certification</th>
+                                <th id="date" class="sort" onclick="sortDate()">Valid</th>
+                                <th>Renewal Due</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="add_cert" class="container" style="display: none;">
+                    <div class="btn-container">
+                        <button id="back-btn" onclick="hideAddCertDiv()">Certificate List</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="bestow_mem">Awarded To:</label>
+                        <select id="bestow_mem" class="form-control" onchange="selectCertType()">
+                            <option value="" disabled selected>Loading...</option>
+                        </select>
+                        <div class="loading-spinner" id="loading">
+                            <div class="spinner" id="sel_spinner"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="certificateType">Certificate Type:</label>
+                        <select id="certificateType" class="form-control" disabled onchange="newAwardDate()">
+                            <option value="" disabled selected>Select certificate type</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="awardDate">Date Awarded:</label>
+                        <input type="text" id="awardDate" class="form-control" style="width: 20%;" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="certificateFile">Upload Certificate (PDF only):</label>
+                        <div class="file-drop-area">
+                            <div class="upload-area" id="uploadArea" ondrop="dropHandler(event);"
+                                ondragover="dragOverHandler(event);" ondragleave="dragOut();">
+                                <div class="upload-icon"><span class="material-symbols-outlined"
+                                        style="font-size: 48px;">
+                                        upload_file
+                                    </span>
+                                </div>
+                                <div id="file-area">
+                                    <p>Drag and drop your certificate here or click to browse</p>
+                                    <input type="file" id="certificateFile" accept=".pdf" style="display: none;">
+                                    <p class="form-text">PDF format only</p>
+                                    <button type="button" class="browse-btn" id="browseBtn"
+                                        onclick="browseFile(event)">Browse</button>
+                                </div>
+                                <div id="file-info" style="display: none;">
+                                    <!-- placeholder for certificate(pdf doc title)-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="submit" class="btn btn-primary" onclick="submitCertificate()" disabled>Upload
+                        Certificate</button>
+                </div>
+
+            </div>
+
+            <script>
+            </script>
+        </body>
+
+</html>
