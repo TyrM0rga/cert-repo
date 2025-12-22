@@ -39,6 +39,7 @@ body {
   border-top: 4px solid var(--primary-color);
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 2rem;
+  border-radius: 4px;
 }
 
 #banner {
@@ -354,6 +355,120 @@ button:disabled {
   /* font-size: 2rem; */
   color: var(--primary-color);
   margin-bottom: 0.5rem;
+}
+
+/*
+--- ✨ New Styles for Details Container ✨ ---
+*/
+
+/* Main container styling */
+#details_container {
+  background-color: #f9fbfd;
+  padding: 25px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+/* Main heading inside the details container */
+#details_container #member-details {
+  margin-top: 0;
+  font-size: 1.8em;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+}
+
+/* Sub-sections for each certificate type */
+#details_container .form-group {
+  padding: 20px;
+  border: 1px solid #e9ecef;
+  border-radius: var(--border-radius);
+  background-color: var(--container-bg-color); /* white */
+  margin-bottom: 20px;
+}
+
+/* Certificate Title (e.g., "AFCEM") */
+#details_container #cert_type {
+  width: 40%;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  margin-top: 0;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border-bottom: none;
+  padding: 0 8px;
+  /* padding-bottom: 0; */
+  background-color: #c3e0fe;
+}
+
+/* Certificate Long Name */
+#details_container .long_name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/*
+--- ✨ Icon Centering Logic ✨ ---
+*/
+
+/* This is the interactive box for the document link */
+.init_cert,
+.renewal_letter {
+  display: flex;
+  /* 1. Change flex direction to stack items vertically */
+  flex-direction: column;
+  /* 2. Center items horizontally within the column */
+  align-items: center;
+  text-align: center; /* Ensures text is centered if it wraps */
+  padding: 20px;
+  border-radius: var(--border-radius);
+  background-color: #f8f9fa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.init_cert:hover,
+.renewal_letter:hover {
+  border-color: var(--primary-color);
+  background-color: #f1f7ff;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+/* Document name text (e.g., AFCEM_123.pdf) */
+.doc_name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: darkblue;
+}
+
+/* Style for the document icon itself */
+.init_cert .material-symbols-outlined,
+.renewal_letter .material-symbols-outlined {
+  font-size: 48px; /* Larger icon */
+  color: var(--primary-color);
+  /* 3. Remove side margin and add top margin for spacing */
+  margin-right: 0;
+  margin-top: 10px;
+}
+
+/* Styling for the renewal section text */
+#renew-letter {
+  font-size: 1.2em;
+  color: #333;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 5px;
+}
+
+#renew-date {
+  font-size: 1em;
+  color: var(--secondary-color);
+  font-weight: normal;
 }
 
 /* Upload progress bar */
