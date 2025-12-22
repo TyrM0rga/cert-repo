@@ -4,12 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+  <link rel="stylesheet" href="styles.css">  
+  <script src="resources/scripts/jquery-ui.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="resources/stylesheets/jquery-ui.min.css" />
+  <link rel="stylesheet" type="text/css" href="resources/stylesheets/jquery-ui.theme.min.css" />
+  <link rel="stylesheet" type="text/css" href="resources/stylesheets/jquery-ui.structure.min.css" />          
+  <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet" />
+            <title>AFCEM Certificate Repository</title>>
 </head>
 
 <body>
-            <div id="dialog-message" title="Under Construction!" style="display: none; color: black;">
+           <div id="dialog-message" title="Under Construction!" style="display: none; color: black;">
                 <p>
                     <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 50px 0"></span>
                     <span id="alert-msg" style="text-align: left;"></span>
@@ -72,6 +79,7 @@
                 <div id="cert_list" class="container">
                     <div class="btn-container">
                         <button id="admin-btn" onclick="showAddCertDiv()">Award Certification</button>
+                        <button id="renew-btn" onclick="showRenewDiv()">AFCEM Renewal</button>
                     </div>
                     <table>
                         <thead>
@@ -140,9 +148,60 @@
                         Certificate</button>
                 </div>
 
+                <div id="renewal_container" class="container" style="display: none;">
+                    <div class="btn-container">
+                        <button id="back-to-list-btn" class="btn btn-secondary" onclick="hideRenewalDiv()">Certificate
+                            List</button>
+                    </div>
+                    <h2>Renew AFCEM Certificate</h2>
+                    <div class="form-group">
+                        <label for="renewal_mem_select">Select Member:</label>
+                        <select id="renewal_mem_select" class="form-control" onchange="selectRenewMem()">                            
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="renewal_date">Date Renewed:</label>
+                        <input type="text" id="renewal_date" class="form-control" style="width: 20%;" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="renewal_cert_file">Upload New Certificate (PDF only):</label>
+                        <div class="file-drop-area">
+                            <div class="upload-area" id="renewalUploadArea" ondrop="renewalDropHandler(event);"
+                                ondragover="dragOverHandler(event);" ondragleave="dragOut();">
+                                <div class="upload-icon"><span class="material-symbols-outlined"
+                                        style="font-size: 48px;">upload_file</span></div>
+                                <div id="renewal-file-area">
+                                    <p>Drag and drop your certificate here or click to browse</p>
+                                    <input type="file" id="renewal_cert_file" accept=".pdf" style="display: none;">
+                                    <p class="form-text">PDF format only</p>
+                                    <button type="button" class="browse-btn" onclick="browseRenewal(event)">Browse</button>
+                                </div>
+                                <div id="renewal-file-info" style="display: none;">
+                                    <!-- placeholder for new certificate PDF title -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="submit_renewal" class="btn btn-primary" onclick="submitRenewal()" disabled>Upload
+                        Renewal</button>
+                </div>
+
+                <!-- details -->
+                <div id="details_container" class="container" style="display: none; border-radius: 4px;">
+                    <div class="btn-container">
+                        <button id="close-btn" class="btn btn-secondary" onclick="closeDetails()">Certificate
+                            List</button>
+                    </div>
+                    <div class="main">
+                        
+                    </div>
+                </div>
+
+
             </div>
 
-            <script>
+            <script src="script.js">
             </script>
         </body>
 
